@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS DOM EVENTS</title>
 </head>
+
 <body>
     <h1 onclick="console.log('I am clicked')">DOM er ajke special events</h1>
     <button title="This is a tooltip" onclick="console.log(7)">Click Me</button>
@@ -25,7 +27,7 @@
     <button id="make-green">Make Green</button>
     <button id="make-goldenrod">Make goldenRod</button>
 
-     <!-- More -->
+    <!-- More -->
     <h1 id="secret-info">My secret info</h1>
     <input id="delete-confirm" type="text" placeholder="please type delete">
     <button id="btn-delete" disabled>Delete</button>
@@ -54,106 +56,119 @@
     </section>
 
     <!-- commentBox -->
-     <section>
+    <section>
         <h1>Please add your comment</h1>
-    <div id="comment-container">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque aperiam autem nisi ipsam suscipit fugit quisquam earum atque inventore eos eligendi quasi repudiandae vel dicta, libero expedita voluptatem nemo perspiciatis odit officiis. Molestias consequuntur excepturi maiores reprehenderit qui explicabo, quidem fugit voluptatibus officiis, facilis voluptates deserunt, non quod ratione quisquam?</p>
-        <p>Soluta dolores iure consectetur vel laboriosam quia nihil ut eveniet mollitia nostrum numquam quas explicabo voluptates amet, laborum architecto totam quos voluptatum quaerat? Itaque est reiciendis excepturi qui, id quisquam, vero asperiores nemo earum eos molestiae eaque ex quaerat provident! Sequi voluptas dolorem impedit accusamus repellendus laudantium eveniet rerum laborum!</p>
-        <p>Doloremque eius commodi pariatur? Ea, libero doloribus temporibus eos exercitationem, quo sed vero quaerat eveniet alias fuga quas, fugit porro quod sit. Tempore rem aliquam id culpa dolorem voluptatum cum illo labore. Non, fuga sapiente, iure ab, dicta deserunt magni illo sunt explicabo expedita cupiditate voluptatem consequatur voluptate nobis doloribus.</p>
-    </div>
-    <div>
-        <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
-        <br>
-        <button id="btn-post">Post</button>
-    </div>
-     </section>
+        <div id="comment-container">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque aperiam autem nisi ipsam suscipit
+                fugit quisquam earum atque inventore eos eligendi quasi repudiandae vel dicta, libero expedita
+                voluptatem nemo perspiciatis odit officiis. Molestias consequuntur excepturi maiores reprehenderit qui
+                explicabo, quidem fugit voluptatibus officiis, facilis voluptates deserunt, non quod ratione quisquam?
+            </p>
+            <p>Soluta dolores iure consectetur vel laboriosam quia nihil ut eveniet mollitia nostrum numquam quas
+                explicabo voluptates amet, laborum architecto totam quos voluptatum quaerat? Itaque est reiciendis
+                excepturi qui, id quisquam, vero asperiores nemo earum eos molestiae eaque ex quaerat provident! Sequi
+                voluptas dolorem impedit accusamus repellendus laudantium eveniet rerum laborum!</p>
+            <p>Doloremque eius commodi pariatur? Ea, libero doloribus temporibus eos exercitationem, quo sed vero
+                quaerat eveniet alias fuga quas, fugit porro quod sit. Tempore rem aliquam id culpa dolorem voluptatum
+                cum illo labore. Non, fuga sapiente, iure ab, dicta deserunt magni illo sunt explicabo expedita
+                cupiditate voluptatem consequatur voluptate nobis doloribus.</p>
+        </div>
+        <div>
+            <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
+            <br>
+            <button id="btn-post">Post</button>
+        </div>
+    </section>
 
-    
+
     <script>
-        document.getElementById('delete-confirm').addEventListener('keyup', function(event){
+        document.getElementById('delete-confirm').addEventListener('keyup', function (event) {
             const text = event.target.value;
             const deleteButton = document.getElementById('btn-delete');
-            if(text === 'delete'){
+            if (text === 'delete') {
                 deleteButton.removeAttribute('disabled');
             }
-            else{
+            else {
                 deleteButton.setAttribute('disabled', true);
             }
         })
-        document.getElementById('btn-delete').addEventListener('click', function(){
+        document.getElementById('btn-delete').addEventListener('click', function () {
             const secret = document.getElementById('secret-info');
             secret.style.display = 'none';
         })
     </script>
 
-<script>
-    function handleOnClick(){
-        const handlerStatus = document.getElementById('handler-status');
-        handlerStatus.innerText = 'Handled by function attached on onclick attribute';
-    }
-    // option 2
-    document.getElementById('event-listener').addEventListener('click', function(){
-        const handlerStatus = document.getElementById('handler-status');
-        handlerStatus.innerText = 'Text updated by add Event listener button'
-    })
+    <script>
+        function handleOnClick() {
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'Handled by function attached on onclick attribute';
+        }
+        // option 2
+        document.getElementById('event-listener').addEventListener('click', function () {
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'Text updated by add Event listener button'
+        })
 
-    // option 2: recap
-    document.getElementById('btn-update').addEventListener('click', function(){
-        const inputField = document.getElementById('input-field');
-        const inputText = inputField.value;
+        // option 2: recap
+        document.getElementById('btn-update').addEventListener('click', function () {
+            const inputField = document.getElementById('input-field');
+            const inputText = inputField.value;
 
-        const p = document.getElementById('input-text-display');
-        p.innerText = inputText;
-        inputField.value = '';
-    })
-</script>
-<script>
-    // const items = document.getElementsByClassName('item');
-    // for(const item of items){
-    //     item.addEventListener('click', function(event){
-    //         event.target.parentNode.removeChild(event.target);
-    //     })
-    // }
+            const p = document.getElementById('input-text-display');
+            p.innerText = inputText;
+            inputField.value = '';
+        })
+    </script>
+    <script>
+        // const items = document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click', function(event){
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
 
-    document.getElementById('list-container').addEventListener('click', function(event){
-        // console.log(event.target);
-        event.target.parentNode.removeChild(event.target);
-    })
+        document.getElementById('list-container').addEventListener('click', function (event) {
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
 
 
 
-    document.getElementById('btn-add-item').addEventListener('click', function(){
-        const listContainer = document.getElementById('list-container');
+        document.getElementById('btn-add-item').addEventListener('click', function () {
+            const listContainer = document.getElementById('list-container');
 
-        const li = document.createElement('li');
-        li.innerText = 'Brand New Item added';
-        li.classList.add('item');
-        listContainer.appendChild(li);
-    })
-</script>
+            const li = document.createElement('li');
+            li.innerText = 'Brand New Item added';
+            li.classList.add('item');
+            listContainer.appendChild(li);
+        })
+    </script>
 
-<script>
-    // step-1: add event listener to the post button
-    document.getElementById('btn-post').addEventListener('click', function(){
-        // step-2: get the comment inside the text area
-        const commentBox = document.getElementById('new-comment');
-        const newComment = commentBox.value;
-        
-        // step-3: set the comment  inside the comment container
-        // 1. get the comment conatiner
-        // 2. create a new element (p tag)
-        // 3. set the text of the comment as innerText of the p tag
-        // 4. add the p tag using appendChild
-        const commentContainer = document.getElementById('comment-container');
-        const p = document.createElement('p');
-        p.innerText = newComment;
-        commentContainer.appendChild(p);
+    <script>
+        // step-1: add event listener to the post button
+        document.getElementById('btn-post').addEventListener('click', function () {
+            // step-2: get the comment inside the text area
+            const commentBox = document.getElementById('new-comment');
+            const newComment = commentBox.value;
 
-        // step-4: clear the text area
-        commentBox.value = '';
-    })        
-</script>
+            // step-3: set the comment  inside the comment container
+            // 1. get the comment conatiner
+            // 2. create a new element (p tag)
+            // 3. set the text of the comment as innerText of the p tag
+            // 4. add the p tag using appendChild
+            const commentContainer = document.getElementById('comment-container');
+            const p = document.createElement('p');
+            p.innerText = newComment;
+            commentContainer.appendChild(p);
 
-    <script src="BUTTON.js"></script>    
+            // step-4: clear the text area
+            commentBox.value = '';
+        })        
+    </script>
+
+    <script src="BUTTON.js"></script>
+
+    <!-- Formating korte hoy( Alt+Shift+F ) -->
 </body>
+
 </html>
