@@ -12,7 +12,7 @@
     <button onclick="console.log(65)">Another button</button>
     <br>
     <button onclick="document.body.style.backgroundColor='yellow'">Make Yellow</button>
-    
+
     <!-- option 2 -->
     <button onclick="makeRed()">Make Red</button>
 
@@ -25,9 +25,61 @@
     <button id="make-green">Make Green</button>
     <button id="make-goldenrod">Make goldenRod</button>
 
-    <script src="BUTTON.js"></script>
+     <!-- More -->
+    <h1 id="secret-info">My secret info</h1>
+    <input id="delete-confirm" type="text" placeholder="please type delete">
+    <button id="btn-delete" disabled>Delete</button>
+
+    <!-- More More -->
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text-display">Default Input text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
+    <button onclick="handleOnClick()">Handle Event by Add onclick Function</button>
+    <button id="event-listener">Handle event by addEventListener</button>
+
+    
     <script>
-        
+        document.getElementById('delete-confirm').addEventListener('keyup', function(event){
+            const text = event.target.value;
+            const deleteButton = document.getElementById('btn-delete');
+            if(text === 'delete'){
+                deleteButton.removeAttribute('disabled');
+            }
+            else{
+                deleteButton.setAttribute('disabled', true);
+            }
+        })
+        document.getElementById('btn-delete').addEventListener('click', function(){
+            const secret = document.getElementById('secret-info');
+            secret.style.display = 'none';
+        })
     </script>
+
+<script>
+    function handleOnClick(){
+        const handlerStatus = document.getElementById('handler-status');
+        handlerStatus.innerText = 'Handled by function attached on onclick attribute';
+    }
+    // option 2
+    document.getElementById('event-listener').addEventListener('click', function(){
+        const handlerStatus = document.getElementById('handler-status');
+        handlerStatus.innerText = 'Text updated by add Event listener button'
+    })
+
+    // option 2: recap
+    document.getElementById('btn-update').addEventListener('click', function(){
+        const inputField = document.getElementById('input-field');
+        const inputText = inputField.value;
+
+        const p = document.getElementById('input-text-display');
+        p.innerText = inputText;
+        inputField.value = '';
+    })
+</script>
+
+    <script src="BUTTON.js"></script>    
 </body>
 </html>
